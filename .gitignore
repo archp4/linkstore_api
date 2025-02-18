@@ -1,0 +1,3 @@
+__pycache__/
+.venv/
+link_storage.db
