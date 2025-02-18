@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy.orm.exc import NoResultFound
 from models import Link  
-from database import get_db  
+from api.database import get_db  
 from schemas import LinkCreate, LinkResponse 
 
 router = APIRouter(prefix="/links", tags=["links"])

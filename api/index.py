@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, status 
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.orm import Session  # Import Session here!
-from database import get_db, engine, Base
+from api.database import get_db, engine, Base
 from models import User
 import links
 import users

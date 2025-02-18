@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.orm.exc import NoResultFound
 import os
 from models import User,Link  # Import your models (User, etc.)
-from database import get_db  # Import your database dependency
+from api.database import get_db  # Import your database dependency
 from schemas import UserResponse, UserCreate, LinkCreate, LinkResponse # Import your schemas
 
 router = APIRouter(prefix="/users", tags=["users"])

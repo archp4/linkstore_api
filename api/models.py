@@ -1,4 +1,4 @@
-from database import Base  # Relative import within the package
+from api.database import Base  # Relative import within the package
 import uuid
 from sqlalchemy import Column, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship  # Import Base from database.py
