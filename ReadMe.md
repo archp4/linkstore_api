@@ -14,7 +14,7 @@ uvicorn main:app --reload --host 10.0.0.102 --port 8000
 
 ## Live Demo URL
 
-https://linkstore-api.onrender.com/
+https://linkstore-api.vercel.app/docs
 
 ## Authentication
 
