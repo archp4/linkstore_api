@@ -4,9 +4,17 @@
 
 This API was developed with the assistance of AI tools (Gemini and Claude 3.5 Sonnet (Copilot Version)) to serve as the backend for a Flutter application. It provides user management and link storage functionality.
 
+## Base Command
+
+uvicorn main:app --reload --host 10.0.0.102 --port 8000
+
 ## Base URL
 
-`http://localhost:8000`
+`http://10.0.0.102:8000`
+
+## Live Demo URL
+
+https://linkstore-api.onrender.com/
 
 ## Authentication
 
