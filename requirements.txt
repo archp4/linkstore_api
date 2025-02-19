@@ -3,3 +3,4 @@ uvicorn
 pydantic
 sqlalchemy
 python-dotenv
+python-jose[cryptography]

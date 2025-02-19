@@ -18,7 +18,95 @@ https://linkstore-api.vercel.app/docs
 
 ## Authentication
 
-Basic authentication using username and password.
+This API uses JWT (JSON Web Tokens) for authentication. Users can obtain an access token by providing their username and password to the `/token` endpoint. This token can then be used to access protected endpoints.
+
+### Obtaining an Access Token
+
+Send a `POST` request to the `/token` endpoint with the username and password in the request body, using the `application/x-www-form-urlencoded` format.
+
+**Request:**
+
+POST /token
+Content-Type: application/x-www-form-urlencoded
+
+username=your_username&password=your_password
+
+**Response (Success - 200 OK):**
+
+```json
+{
+  "access_token": "your_access_token",
+  "token_type": "bearer"
+}
+```
+
+### Error Handling
+
+The API will return appropriate HTTP status codes and JSON error responses for authentication-related issues. Common errors include:
+
+401 Unauthorized: Incorrect credentials, invalid token, or missing token.
+404 Not Found: User not found.
+
+**Response (Error - 401 Unauthorized):**
+
+```json
+{
+  "detail": "Incorrect username or password",
+  "headers": {
+    "WWW-Authenticate": "Bearer"
+  }
+}
+```
+
+Accessing Protected Endpoints
+To access a protected endpoint, include the access token in the Authorization header of your request, using the Bearer scheme.
+
+**Request:**
+
+GET /users/me (or any other protected endpoint)
+Authorization: Bearer your_access_token
+Response (Success - 200 OK):
+
+```json
+{
+  "id": "user_id",
+  "username": "your_username"
+  // ... other user data
+}
+```
+
+**Response (Error - 401 Unauthorized - Invalid or Expired Token):**
+
+```json
+{
+  "detail": "Invalid token"
+}
+```
+
+## Refreshing Tokens
+
+Send a `POST` request to the `/refresh_token` endpoint with the refresh token in the `Authorization` header, using the `Bearer` scheme.
+
+**Request:**
+POST /refresh_token
+Authorization: Bearer your_refresh_token
+
+**Response (Success - 200 OK):**
+
+```json
+{
+  "access_token": "your_new_access_token",
+  "token_type": "bearer"
+}
+```
+
+**Response (Error - 401 Unauthorized):**
+
+```json
+{
+  "detail": "Invalid refresh token"
+}
+```
 
 ## Endpoints
 
